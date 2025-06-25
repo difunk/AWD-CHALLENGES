@@ -27,6 +27,9 @@ function App() {
 
   return (
     <>
+    <p>
+        Challenge 1:
+    </p>
       {Object.entries(userResults).map(([status, users]) => (
         <div key={status}>
             <strong>{status}:</strong>
