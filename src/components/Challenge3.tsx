@@ -2,7 +2,7 @@ import React from 'react'
 
 const Challenge3 = () => {
 
-    const extractNumber = (word: string): number => Number(word.match(/\d/)?.[0] ?? Infinity);
+    const extractNumber = (word: string): number =>Number(word.match(/\d/)?.[0] ?? Infinity);
 
     const orderByNumber = (input: string): string => {
     return input

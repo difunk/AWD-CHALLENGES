@@ -2,7 +2,7 @@ import './App.css'
 import Challenge1 from './components/Challenge1'
 import Challenge2 from './components/Challenge2'
 import Challenge3 from './components/Challenge3'
-
+import Challenge4 from './components/Challenge4'
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Challenge1 />
       <Challenge2 />
       <Challenge3 />
+      <Challenge4 />
     </>
   )
 }
