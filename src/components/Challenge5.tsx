@@ -1,6 +1,5 @@
 const Challenge5 = () => {
     const whoLikesIt = (names: string[]): string => {
-        console.log(names.length)
         switch (names.length) {
             case 0:
                 return "no one likes this";
