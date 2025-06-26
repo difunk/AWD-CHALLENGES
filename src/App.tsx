@@ -6,6 +6,7 @@ import Challenge4 from './components/Challenge4'
 import Challenge5 from './components/Challenge5'
 import Challenge6 from './components/Challenge6'
 import Challenge7 from './components/Challenge7'
+import Challenge8 from './components/Challenge8'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Challenge5 />
       <Challenge6 />
       <Challenge7 />
+      <Challenge8 />
     </>
   )
 }

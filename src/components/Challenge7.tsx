@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Challenge7 = () => {
     let n: number = 5;
     let counter: number = 1;
