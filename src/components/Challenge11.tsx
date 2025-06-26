@@ -14,12 +14,10 @@ const Challenge11 = () => {
 
                     return(
                         <div key={index}>
-                            <div>
-                                {displayString}
-                            </div>
-                                {displayString.split("").map((_, index) => (
-                                    <span key={index}>{"="}</span> 
-                                ))}
+                            <div>{displayString}</div>
+                            {displayString.split("").map((_, index) => (
+                                <span key={index}>{"="}</span> 
+                            ))}
 
                             <div style={{ display: "flex", alignItems: "center"}}>
                                 <p style={{ whiteSpace: "pre"}}>Grades: </p>
@@ -27,6 +25,21 @@ const Challenge11 = () => {
                                     <div key={index} style={{ whiteSpace: "pre"}}>
                                         {grade === undefined ? "*" : grade}
                                         {index < student.grades.length -1 ? ", " : ""}
+                                    </div>
+                                )}
+                            </div>
+                            <div style={{ marginTop: "16px"}}>
+                                <p>Noten:</p>
+                                {student.transcripts.map((transcript, index) => 
+                                    <div style={{ display: "flex"}} key={index}>
+                                        {`${transcript.subject}:\u00A0`}
+                                        <div style={{ display: "flex", flexDirection: "row"}}>
+                                            {transcript.grades.map((grade, index) => 
+                                               <div>
+                                                {grade === undefined ? "*" : grade}
+                                                {index < transcript.grades.length - 1 ? "," : ""}</div> 
+                                            )} 
+                                        </div>
                                     </div>
                                 )}
                             </div>
