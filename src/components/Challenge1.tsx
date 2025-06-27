@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { users } from '../InputData';
+import { users } from '../inputData';
   
 const Challenge1 = () => {
   const [userResults, setUserResults] = useState<Record<string, string[]>>({});
