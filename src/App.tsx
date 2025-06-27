@@ -9,6 +9,7 @@ import Challenge15 from './components/Challenge15'
 import Challenge16 from './components/Challenge16'
 import Challenge17 from './components/Challenge17'
 import Challenge18 from './components/Challenge18'
+import Challenge19 from './components/Challenge19'
 import Challenge2 from './components/Challenge2'
 import Challenge3 from './components/Challenge3'
 import Challenge4 from './components/Challenge4'
@@ -39,6 +40,8 @@ function App() {
       <Challenge16 />
       <Challenge17 />
       <Challenge18 />
+      <Challenge18 />
+      <Challenge19 />
     </>
   )
 }
