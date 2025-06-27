@@ -2,6 +2,7 @@ import './App.css'
 import Challenge1 from './components/Challenge1'
 import Challenge10 from './components/Challenge10'
 import Challenge11 from './components/Challenge11'
+import Challenge12 from './components/Challenge12'
 import Challenge2 from './components/Challenge2'
 import Challenge3 from './components/Challenge3'
 import Challenge4 from './components/Challenge4'
@@ -25,6 +26,7 @@ function App() {
       <Challenge9 />
       <Challenge10 />
       <Challenge11 />
+      <Challenge12 />
     </>
   )
 }
