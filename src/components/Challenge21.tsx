@@ -38,7 +38,8 @@ console.log(result)
 
 
 // Generic with Default Type
-function wrapValue<T = string>(val: T = "" as T): T[] {
+function wrapValue<T = string>(val?: T): T[] {
+    if (val === undefined) return ["" as unknown as T];
     return [val]
 }
 
