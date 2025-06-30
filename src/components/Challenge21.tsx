@@ -70,16 +70,8 @@ const Challenge21 = () => {
 
             <div style={{ marginBottom: "12px"}}>
                 <p style={{ fontWeight: "bold"}}>
-<<<<<<< HEAD
                     TypeScript Generics Exercises
                 </p>
-=======
-                    Generic Identity Function
-                </p>
-                <div>
-
-                </div>
->>>>>>> origin/main
             </div>
         </div>
     </>
