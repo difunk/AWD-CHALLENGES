@@ -11,6 +11,7 @@ import Challenge17 from './components/Challenge17'
 import Challenge18 from './components/Challenge18'
 import Challenge19 from './components/Challenge19'
 import Challenge2 from './components/Challenge2'
+import Challenge20 from './components/Challenge20'
 import Challenge3 from './components/Challenge3'
 import Challenge4 from './components/Challenge4'
 import Challenge5 from './components/Challenge5'
@@ -22,7 +23,7 @@ import Challenge9 from './components/Challenge9'
 function App() {
   return (
     <>
-      <Challenge1 />
+      {/* <Challenge1 />
       <Challenge2 />
       <Challenge3 />
       <Challenge4 />
@@ -41,7 +42,8 @@ function App() {
       <Challenge17 />
       <Challenge18 />
       <Challenge18 />
-      <Challenge19 />
+      <Challenge19 /> */}
+      <Challenge20 />
     </>
   )
 }
