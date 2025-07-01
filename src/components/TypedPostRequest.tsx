@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import type { NewPost, Post } from '../types/Interfaces';
+import axios, { isAxiosError } from 'axios';
 
 async function createPost(post: NewPost): Promise<Post> {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(post),
-  });
-
-  const data: Post = await res.json();
-  return data;
+    const response = await axios.post<Post> (
+        'https://jsonplaceholder.typicode.com/posts',
+        post
+    );
+    return response.data;
 }
 
 const TypedPostRequest = () => {
@@ -21,6 +19,8 @@ const TypedPostRequest = () => {
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+    const [createdPosts, setCreatedPosts] = useState<Post[]>([]);
+
 
     const handleCreatePost = (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,18 +31,22 @@ const TypedPostRequest = () => {
 
     createPost({ title, body, userId })
         .then(post => {
+            const postWithUniqueID = {...post, id: Date.now()}
             setSuccessMessage(
-            `Post erfolgreich erstellt mit:
+            `Axios Post erfolgreich erstellt mit:
             ID: ${post.id}
             UserID: ${post.userId}
             Titel: ${post.title}
             Inhalt: ${post.body}`
             );
+            setCreatedPosts(prevPosts => [...prevPosts, postWithUniqueID])
             setTitle('');
             setBody('');
         })
         .catch(error => {
-            setErrorMessage(error.message);
+            if (axios.isAxiosError(error)) {
+                setErrorMessage(error.message);
+            }
         })
         .finally(() => {
             setLoading(false);
@@ -90,6 +94,21 @@ const TypedPostRequest = () => {
 
                 {successMessage && <p style={{ color: 'green', marginTop: '12px' }}>{successMessage}</p>}
                 {errorMessage && <p style={{ color: 'red', marginTop: '12px' }}>{errorMessage}</p>}
+
+                {createdPosts.length > 0 && (
+                    <div >
+                        <div>Erstellte Posts:</div>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))"}}>
+                            {createdPosts.map(post => (
+                                <div key={post.id}>
+                                    <strong>{post.id}. {post.title}</strong>
+                                    <p>{post.body}</p>
+                                    <small>UserID: {post.userId}</small>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     </>
