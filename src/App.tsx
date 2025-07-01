@@ -20,6 +20,10 @@ import Challenge6 from './components/Challenge6'
 import Challenge7 from './components/Challenge7'
 import Challenge8 from './components/Challenge8'
 import Challenge9 from './components/Challenge9'
+import TypedFetchRequest from './components/TypedFetchRequest'
+import NetworkRequestsFetch from './components/TypedFetchRequest'
+import TSRequests from './components/TypedFetchRequest'
+import TypedPostRequest from './components/TypedPostRequest'
 
 function App() {
   return (
@@ -44,8 +48,10 @@ function App() {
       <Challenge18 />
       <Challenge18 />
       <Challenge19 /> */}
-      <Challenge20 />
-      <Challenge21 />
+      {/* <Challenge20 />
+      <Challenge21 /> */}
+      <TypedFetchRequest />
+      <TypedPostRequest />
     </>
   )
 }
