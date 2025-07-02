@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import type { Post } from '../types/Interfaces';
+// import type { Post } from '../types/Interfaces';
 import axios from 'axios';
+import { z } from "zod"
+
+const PostSchema = z.object({
+    title: z.string().transform((title) => title.toUpperCase()),
+    userId: z.number().default(0),
+    id: z.number(),
+    body: z.string().refine((value) => value.length > 10, {
+      message: "Body is too short"
+    }),
+})
+
+type Post = z.infer<typeof PostSchema>
+const PostListSchema = z.array(PostSchema)
 
 const TypedFetchRequest = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -9,7 +22,15 @@ const TypedFetchRequest = () => {
 
   async function getPosts(): Promise<Post[]> {
     const res = await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts?_limit=10');
-    return res.data;
+
+    const data = PostListSchema.safeParse(res.data)
+      if (data.success){
+        console.log(data)
+        return data.data;
+      } else {
+        console.log(data)
+        return [];
+      }
   }
 
   useEffect(() => {
@@ -22,6 +43,9 @@ const TypedFetchRequest = () => {
       .catch((err: unknown) => {
         if(axios.isAxiosError(err)) {
           setError(err.message);
+        }
+        if(err instanceof z.ZodError){
+          console.error(err.message)
         }
         
         setLoading(false);

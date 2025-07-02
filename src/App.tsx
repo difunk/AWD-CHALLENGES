@@ -20,6 +20,7 @@ import Challenge6 from './components/Challenge6'
 import Challenge7 from './components/Challenge7'
 import Challenge8 from './components/Challenge8'
 import Challenge9 from './components/Challenge9'
+import TypedDomManip from './components/TypedDomManip'
 import TypedFetchRequest from './components/TypedFetchRequest'
 import NetworkRequestsFetch from './components/TypedFetchRequest'
 import TSRequests from './components/TypedFetchRequest'
@@ -47,11 +48,12 @@ function App() {
       <Challenge17 />
       <Challenge18 />
       <Challenge18 />
-      <Challenge19 /> */}
-      {/* <Challenge20 />
+      <Challenge19 /> 
+      <Challenge20 />
       <Challenge21 /> */}
       <TypedFetchRequest />
       <TypedPostRequest />
+      <TypedDomManip />
     </>
   )
 }
