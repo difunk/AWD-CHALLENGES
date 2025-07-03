@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import type { Post } from '../types/Interfaces';
 import axios from 'axios';
 import { z } from "zod"
 
